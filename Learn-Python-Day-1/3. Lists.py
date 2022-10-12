@@ -29,7 +29,7 @@ while True:
     
     if selection == 1:
         val = str(input("What do you want to store int the list?\n"))
-        List.append(val)1
+        List.append(val)
         print("Your input is stored in position: " + str(len(List)))
 
     elif selection == 2:
