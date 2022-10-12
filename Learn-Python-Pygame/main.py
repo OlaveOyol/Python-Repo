@@ -15,16 +15,18 @@ colours = {
     "Black" : (0,0,0)
 }
 
+g_size = 20
+
 s_colour = (0,0,255)
-s_size = 20
+s_size = 18
 s_speed = 15
 
 clock = pygame.time.Clock()
 font_style = pygame.font.SysFont(None, 50)
 
-def snake(snake_block, snake_list):
+def snake(s_block, snake_list):
     for x in snake_list:
-        pygame.draw.rect(dis, colours["Green"], [x[0], x[1], snake_block, snake_block])
+        pygame.draw.rect(dis, colours["Green"], [x[0], x[1], s_block, s_block])
 
 def message(msg,color):
     mesg = font_style.render(msg, True, color)
@@ -40,8 +42,8 @@ def gameLoop():
     x_snake_change = 0
     y_snake_change = 0
 
-    x_food = round(random.randrange(0, dis_w - s_size) / s_size) * s_size
-    y_food = round(random.randrange(0, dis_h - s_size) / s_size) * s_size
+    x_food = round(random.randrange(0, dis_w - g_size) / g_size) * g_size
+    y_food = round(random.randrange(0, dis_h - g_size) / g_size) * g_size
 
     snake_List = []
     s_length = 1
@@ -69,17 +71,17 @@ def gameLoop():
                 game_over = True
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    x_snake_change = -s_size
+                    x_snake_change = -g_size
                     y_snake_change = 0
                 elif event.key == pygame.K_RIGHT:
-                    x_snake_change = s_size
+                    x_snake_change = g_size
                     y_snake_change = 0
                 elif event.key == pygame.K_UP:
                     x_snake_change = 0
-                    y_snake_change = -s_size
+                    y_snake_change = -g_size
                 elif event.key == pygame.K_DOWN:
                     x_snake_change = 0
-                    y_snake_change = s_size
+                    y_snake_change = g_size
                 elif event.key == pygame.K_ESCAPE:
                     game_over = False
                     game_close = True
@@ -109,8 +111,8 @@ def gameLoop():
         pygame.display.update()
 
         if x_snake == x_food and y_snake == y_food:
-            x_food = round(random.randrange(0, dis_w - s_size) / s_size) * s_size
-            y_food = round(random.randrange(0, dis_h - s_size) / s_size) * s_size
+            x_food = round(random.randrange(0, dis_w - g_size) / g_size) * g_size
+            y_food = round(random.randrange(0, dis_h - g_size) / g_size) * g_size
             s_length += 1
 
         clock.tick(s_speed)
