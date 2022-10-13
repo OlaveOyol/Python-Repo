@@ -49,8 +49,3 @@ def main(maze, window_w, window_h, grid_r, grid_c):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     exit_window = True
-
-
-            
-    
-
