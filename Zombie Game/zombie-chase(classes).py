@@ -12,13 +12,11 @@ class Window:
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-
+        super().__init__()
         self.speedmult = 1.0
         self.health = 100
         self.damagemult = 1 - self.speedmult
         self.speed = 10
-
         self.posx = 0
         self.posy = 0
         self.frame = 0
